@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function productsRender(product) {
         items.innerHTML = '';
-        product.forEach((cart, index) => {
+        product.forEach((cart ,index) => {
             let cartItem = document.createElement('div');
             cartItem.classList = "cart-item";
     
@@ -21,20 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
             h3.innerHTML = cart.title;
             let p = document.createElement("p");
             p.innerHTML = cart.category;
-    
+                
             let removeButton = document.createElement('button');
             removeButton.textContent = "Remove";
+            removeButton.classList = "btn btn-outline-danger"
             removeButton.addEventListener('click', () => {
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                productsRender(cart);
+                product.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(product));
+                productsRender(product);
                 calculateTotal();
                 updateCartIcon();
             });
+
     
             itemDetails.appendChild(h3);
             itemDetails.appendChild(p);
-            itemDetails.appendChild(removeButton);
+            itemDetails.appendChild(removeButton)
     
             let itemPrice = document.createElement('div');
             itemPrice.classList = "item-price";
@@ -46,7 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
             items.appendChild(cartItem);
         });
     }
+    function calculateTotal(){
+        let total = 0
+        product.forEach( item => 
+            total += item.price
+        )
+
+        let divTotal = document.querySelector(".total")
+        divTotal.innerHTML = ` Total : ${total.toFixed(0)}  `
+    }
     
 productsRender(product)
-        
+calculateTotal()        
 })

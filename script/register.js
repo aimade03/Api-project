@@ -10,10 +10,14 @@ submit.addEventListener('click' , (e) => {
     if(!name.value){
         validation = false
     }
-    if(!email.value){
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!email.value || !emailRegex.test(email.value) ){
+        alert("email is not correct ")
         validation = false
     }
-    if(!password.value){
+    const passwordRegex =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    if(!password.value || !passwordRegex.test(password.value)){
+        alert('password form not correct')
         validation = false
     }
     if(!confirmPassword.value && confirmPassword.value === password.value){

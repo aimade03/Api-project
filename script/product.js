@@ -19,10 +19,16 @@ function productsRender(products){
         div.classList = "product-card"
         let img = document.createElement("img")
         img.setAttribute("src", item.image)
+        img.style.height = "300px"
         img.classList = "product-image"
         let h2 = document.createElement("h2")
         h2.classList = "product-title"
-        h2.innerHTML = item.title
+        let title = item.title;
+        if (title.length > 30) {
+            title = title.substring(0, 30) + "...";
+        }
+        h2.style.height = "50px"
+        h2.innerHTML = title
         let p = document.createElement("p")
         p.innerHTML = item.price
         p.classList = "product-price"
