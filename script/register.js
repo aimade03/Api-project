@@ -4,27 +4,31 @@ let password = document.querySelector("#password")
 let confirmPassword = document.querySelector("#confirm-password")
 let submit = document.querySelector(".btn")
 let users = JSON.parse(localStorage.getItem("users")) || []
-submit.addEventListener('click' , (e) => {
+submit.addEventListener('click', (e) => {
     e.preventDefault();
     let validation = true;
-    if(!name.value){
+    if (!name.value) {
         validation = false
     }
-    if(!email.value){
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email.value || !emailRegex.test(email.value)) {
+        alert("email is not correct ")
         validation = false
     }
-    if(!password.value){
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    if (!password.value || !passwordRegex.test(password.value)) {
+        alert('password form not correct')
         validation = false
     }
-    if(!confirmPassword.value && confirmPassword.value === password.value){
+    if (!confirmPassword.value && confirmPassword.value === password.value) {
         validation = false
     }
     users.forEach(user => {
-        if(user.email === email.value){
+        if (user.email === email.value) {
             validation = false
         }
     });
-    if(validation === false){
+    if (validation === false) {
         alert("entre information ")
     } else {
         let user = {
@@ -33,12 +37,12 @@ submit.addEventListener('click' , (e) => {
             password: password.value
         };
         users.push(user)
-        
-        localStorage.setItem('users',JSON.stringify(users))
+
+        localStorage.setItem('users', JSON.stringify(users))
         name.value = "";
         email.value = "";
         password.value = "";
         confirmPassword.value = "";
-        
-    }    
+
+    }
 })

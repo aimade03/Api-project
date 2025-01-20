@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles//nav.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -24,6 +25,25 @@
           <button>Search</button>
         </div>
     </nav>
+    <form id="filterForm">
+      <label for="minPrice">Minimum Price:</label>
+      <input type="number" id="minPrice" name="minPrice" value="0">
+    
+      <label for="maxPrice">Maximum Price:</label>
+      <input type="number" id="maxPrice" name="maxPrice" value="1000">
+    
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="">All</option>
+        <option value="women's clothing">women's clothing</option>
+        <option value="electronics">electronics</option>
+        <option value="jewelery">jewelery</option>
+        <option value="men's clothing">men's clothing</option>
+
+      </select>
+    
+      <button type="submit">Filter</button>
+    </form>
     <div class="cards">
     </div>
     <script src="../script/product.js"></script>
