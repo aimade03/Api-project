@@ -42,6 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.textContent = cart.length;
     }
 });
+
+function AddFavorites(produit){
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [] ;
+    let ifExistingFavorites = favorites.find(item => item.title === produit.title)
+
+    if(ifExistingFavorites){
+        alert(' this is product aleardy Add in favorites ')
+    } else {
+        favorites.push(produit)
+        localStorage.setItem('favorites' , JSON.stringify(favorites))
+    }
+}
+
+function removeFavorites(produit){
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [] ;
+    let removeFavorites = favorites.filter( item => item.title !== produit.title)
+    localStorage.setItem("favorites",JSON.stringify(removeFavorites))
+}
+
 let user_active = JSON.parse(localStorage.getItem('user_active')) || null
 let button = document.querySelector('#btn')
 let buttonRegester = document.querySelector('#btnR')

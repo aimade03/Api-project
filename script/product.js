@@ -18,6 +18,7 @@ function productsRender(products) {
     products.forEach(item => {
         let div = document.createElement("div")
         div.classList = "product-card"
+
         let img = document.createElement("img")
         img.setAttribute("src", item.image)
         img.style.height = "300px"
@@ -33,9 +34,11 @@ function productsRender(products) {
         }
         h2.style.height = "50px"
         h2.innerHTML = title
+
         let p = document.createElement("p")
         p.innerHTML = item.price
         p.classList = "product-price"
+
         let button = document.createElement("button")
         button.innerHTML = "Add To Cart"
         button.classList = "add-to-cart"
@@ -43,10 +46,17 @@ function productsRender(products) {
             AddCart(item, 1)
         }
         )
+        let buttonFav = document.createElement('span')
+        buttonFav.innerHTML = `<i class="fa-solid fa-heart"></i>`
+        buttonFav.classList = "add-to-fav"
+        buttonFav.addEventListener("click",() => {
+            AddFavorites(item)
+        })
         div.appendChild(img)
         div.appendChild(h2)
         div.appendChild(p)
         div.appendChild(button)
+        div.appendChild(buttonFav)
         cards.appendChild(div)
     })
 }

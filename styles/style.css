@@ -109,4 +109,12 @@ body {
 #filterForm button:hover {
   background-color: #0056b3;
 }
- 
+.add-to-fav i {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.add-to-fav.favorited i {
+  color: red;
+}
