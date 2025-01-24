@@ -109,12 +109,14 @@ body {
 #filterForm button:hover {
   background-color: #0056b3;
 }
+.divBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .add-to-fav i {
   color: gray;
   cursor: pointer;
   transition: color 0.3s ease;
-}
-
-.add-to-fav.favorited i {
-  color: red;
 }

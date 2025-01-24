@@ -85,3 +85,18 @@ h1 {
 .checkout-btn:hover {
     background: #218838;
 }
+.btn-remove{
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+  }
+  
+  .btn-remove:hover {
+    background-color: #e5533b;
+  }

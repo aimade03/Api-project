@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let removeButton = document.createElement('button');
             removeButton.textContent = "Remove";
-            removeButton.classList = "btn btn-outline-danger"
+            removeButton.classList = "btn-remove"
             removeButton.addEventListener('click', () => {
                 product.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(product));

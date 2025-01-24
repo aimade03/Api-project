@@ -11,20 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
             favItem.classList = "fav-item";
 
             let image = document.createElement('img');
+            image.classList = "fav-image"
             image.setAttribute('src', fav.image);
 
             let itemDetails = document.createElement('div');
             itemDetails.classList = "item-details";
             let h3 = document.createElement("h3");
+            h3.classList = "fav-title"
             h3.innerHTML = fav.title;
             let p = document.createElement("p");
             p.innerHTML = fav.category;
 
             let removeButton = document.createElement('button');
             removeButton.textContent = "Remove";
-            removeButton.classList = "btn btn-outline-danger"
+            removeButton.classList = "btn-remove"
             removeButton.addEventListener('click', () => {
-                removeFavorites(product)
+                removeFavorites(fav)
                 productsRender(product);
             });
 
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemDetails.appendChild(removeButton)
 
             let itemPrice = document.createElement('div');
-            itemPrice.classList = "item-price";
+            itemPrice.classList = "fav-price";
             itemPrice.innerHTML = `$${fav.price.toFixed(2)}`;
 
             favItem.appendChild(image);

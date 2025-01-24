@@ -47,16 +47,27 @@ function productsRender(products) {
         }
         )
         let buttonFav = document.createElement('span')
-        buttonFav.innerHTML = `<i class="fa-solid fa-heart"></i>`
+        buttonFav.innerHTML = `<i class="fa-solid fa-heart" class="font" ></i>`
         buttonFav.classList = "add-to-fav"
         buttonFav.addEventListener("click",() => {
             AddFavorites(item)
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [] ;
+            let ifExistingFavorites = favorites.find(fav => fav.title === item.title)
+            if(ifExistingFavorites){
+                buttonFav.querySelector('i').style.color = "red";
+            }
         })
+
+        let divBtn = document.createElement("div")
+        divBtn.classList = "divBtn"
+        divBtn.appendChild(button)
+        divBtn.appendChild(buttonFav)
+
+
         div.appendChild(img)
         div.appendChild(h2)
         div.appendChild(p)
-        div.appendChild(button)
-        div.appendChild(buttonFav)
+        div.appendChild(divBtn)
         cards.appendChild(div)
     })
 }
