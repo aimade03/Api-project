@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="/Api-project/styles/confrmation.css">
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Order Confirmation</h1>
+        <p>Your order has been successfully placed!</p>
+        
+        <div id="order-details">
+            <h3>Order ID: <span id="order-id"></span></h3>
+            <h3>Order Date: <span id="order-date"></span></h3>
+            <h3>Total Amount: $<span id="order-total"></span></h3>
+        </div>
+
+        <button onclick="window.location.href='index.html'">Go Back to Shop</button>
+    </div>
+
+    <script src="/Api-project/script/confirmation.js"></script>
+</body>
+</html>

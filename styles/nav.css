@@ -7,14 +7,16 @@
   }
   
   .logo {
-    color: white;
+    color: #ff6347;
     font-size: 24px;
     font-weight: bold;
+    margin-left: 10px;
   }
   
   .nav-links {
     list-style: none;
     display: flex;
+    padding-top: 20px;
   }
   
   .nav-links li {
@@ -51,6 +53,7 @@
   /* Search Bar */
   .search-bar {
     display: flex;
+    margin-right: 10px;
   }
   
   .search-bar input {
